@@ -10,6 +10,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+/**
+ * Data access object for managing books in data source
+ */
 @Repository
 public class BookDaoImpl implements BookDao {
 
