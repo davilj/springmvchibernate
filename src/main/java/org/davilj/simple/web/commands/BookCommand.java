@@ -14,6 +14,7 @@ public class BookCommand extends Book {
   public BookCommand(Book book) {
     setId(book.getId());
     setName(book.getName());
+    setOwner(book.getOwner());
 
   }
 
@@ -21,7 +22,7 @@ public class BookCommand extends Book {
     Book book = new Book();
     book.setId(getId());
     book.setName(getName());
-
+    book.setOwner(getOwner());
     return book;
   }
 

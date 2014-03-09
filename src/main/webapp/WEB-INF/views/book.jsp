@@ -20,6 +20,14 @@
 						<form:errors path="name" cssClass="errors" />
 						<form:input path="name" />
 					</div>
+					<div class="field">
+						<form:label for="name" path="name">Owner:</form:label>
+						<form:errors path="name" cssClass="errors" />
+						<form:select path="owner">
+            				<form:option value="-" label="--Please Select"/>
+            				<form:options items="${users}" itemValue="name" itemLabel="name"/>
+        				</form:select>
+					</div>
 				</div>
 
 				<div class="field vertical">
@@ -27,10 +35,11 @@
 				</div>
 
 			</fieldset>
+			
 		</form:form>
 		<form:form action="" method="put" modelAttribute="books">
 			<table>
-				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th></tr></thead>
+				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Owner</th></tr></thead>
 				<tbody>
 					<c:forEach var="bookEntry" items="${books.bookMap}" varStatus="row">
 						<tr>
@@ -46,6 +55,10 @@
 							<td>
 								<form:errors path="bookMap[${bookEntry.key}].name" cssClass="errors" />
 								<form:input disabled="${!bookEntry.value.selected}" path="bookMap[${bookEntry.key}].name" />
+							</td>
+							<td>
+								<form:errors path="bookMap[${bookEntry.key}].owner.name" cssClass="errors" />
+								<form:input disabled="${!bookEntry.value.selected}" path="bookMap[${bookEntry.key}].owner.name" />
 							</td>
 							
 							

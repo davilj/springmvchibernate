@@ -13,8 +13,17 @@
 	<!--scan this for controllers-->			
     <context:component-scan base-package="org.davilj.simple.web" />
 
+    <bean id="conversionService"
+      class="org.springframework.context.support.ConversionServiceFactoryBean">
+    	<property name="converters">
+        	<list>
+            	<bean class="org.davilj.simple.web.commands.OwnerConverter"/>
+        	</list>
+    	</property>
+	</bean>	
+    	
     <!--annotation driver-->	
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="conversionService"/>
 	
 	<mvc:view-controller path="/" view-name="home" />
 	

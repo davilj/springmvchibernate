@@ -1,5 +1,7 @@
 package org.davilj.simple.service.impl;
 
+import java.util.List;
+
 import org.davilj.simple.dao.UserDao;
 import org.davilj.simple.model.User;
 import org.davilj.simple.service.UserService;
@@ -34,6 +36,11 @@ public class UserServiceImpl implements UserService {
     return new UserGrid(userDao.findAll());
   }
 
+  @Transactional(readOnly = true)
+  public List<User> listAllUsers() {
+    return userDao.findAll();
+  }
+
   @Transactional
   public void save(UserCommand userCommand) {
     log.debug("User: " + userCommand.toUser());
@@ -52,4 +59,5 @@ public class UserServiceImpl implements UserService {
     allUsers.getUserMap().putAll(userGrid.getUserMap());
     userGrid.setUserMap(allUsers.getUserMap());
   }
+
 }

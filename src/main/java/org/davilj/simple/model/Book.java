@@ -72,4 +72,9 @@ public class Book implements Serializable {
     return true;
   }
 
+  @Override
+  public String toString() {
+    return "Book [id=" + id + ", name=" + name + ", owner=" + owner.getName() + "]";
+  }
+
 }

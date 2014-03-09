@@ -3,6 +3,7 @@ package org.davilj.simple.web;
 import javax.validation.Valid;
 
 import org.davilj.simple.service.BookService;
+import org.davilj.simple.service.UserService;
 import org.davilj.simple.web.commands.BookCommand;
 import org.davilj.simple.web.vo.Books;
 import org.slf4j.Logger;
@@ -24,18 +25,22 @@ public class BookController {
   @Autowired
   BookService bookService;
 
+  @Autowired
+  UserService userService;
+
   @RequestMapping(method = RequestMethod.GET)
   public void get(Model model, @ModelAttribute BookCommand BookCommand) {
     model.addAttribute("books", bookService.findAll());
+    model.addAttribute("users", userService.listAllUsers());
   }
 
   @RequestMapping(method = RequestMethod.POST)
   public String post(Model model, @Valid BookCommand bookCommand, BindingResult result) {
     log.debug("Ready to persist: " + bookCommand);
     if (result.hasErrors()) {
-      // errors in binding result, will be reported, lets load user agains
+      // errors in binding result, will be reported, load old books again
       log.debug("error: user post" + result.getAllErrors());
-      model.addAttribute("userGrid", bookService.findAll());
+      model.addAttribute("books", bookService.findAll());
       return URL;
     }
 
