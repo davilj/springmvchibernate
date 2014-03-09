@@ -1,8 +1,8 @@
 package org.davilj.simple.service;
 
 import org.davilj.simple.model.User;
-import org.davilj.simple.web.UserCommand;
-import org.davilj.simple.web.UserGrid;
+import org.davilj.simple.web.commands.UserCommand;
+import org.davilj.simple.web.vo.UserGrid;
 
 
 public interface UserService {

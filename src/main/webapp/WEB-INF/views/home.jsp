@@ -13,7 +13,9 @@
 			<li>Spring security</li>
 			<li>hibernate</li>
 		</ul>
-		<p>Go to <a href="<c:url value='/user' />">User</a> page.</p>
+		<p>Go to <a href="<c:url value='/user' />">Users</a> page.</p>
+		<p>Go to <a href="<c:url value='/book' />">Books</a> page.</p>
+		<p>Go to <a href="<c:url value='/reservation' />">Reserve a book</a> page.</p>
 		<a href="<c:url value="j_spring_security_logout" />" > Logout</a>
 	</body>
 </html>

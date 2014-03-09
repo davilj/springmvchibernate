@@ -3,6 +3,8 @@ package org.davilj.simple.web;
 import javax.validation.Valid;
 
 import org.davilj.simple.service.UserService;
+import org.davilj.simple.web.commands.UserCommand;
+import org.davilj.simple.web.vo.UserGrid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class UserController {
   @Autowired
   UserService userService;
 
+  PasswordEncoder passwordEncoder = new StandardPasswordEncoder();
+
   @RequestMapping(method = RequestMethod.GET)
   public void get(Model model, @ModelAttribute UserCommand userCommand) {
     model.addAttribute("userGrid", userService.findAll());
@@ -46,7 +50,6 @@ public class UserController {
       result.addError(objectError);
     }
 
-    PasswordEncoder passwordEncoder = new StandardPasswordEncoder();
     userCommand.setPassword(passwordEncoder.encode(userCommand.getPassword()));
     userService.save(userCommand);
 

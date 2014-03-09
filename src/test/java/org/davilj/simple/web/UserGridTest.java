@@ -9,6 +9,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 
 import org.davilj.simple.model.User;
+import org.davilj.simple.web.vo.UserGrid;
 import org.junit.Assert;
 import org.junit.Test;
 
