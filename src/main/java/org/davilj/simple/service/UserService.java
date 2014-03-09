@@ -6,6 +6,12 @@ import org.davilj.simple.model.User;
 import org.davilj.simple.web.commands.UserCommand;
 import org.davilj.simple.web.vo.UserGrid;
 
+/**
+ * Service for managing users
+ * 
+ * @author danie
+ * 
+ */
 public interface UserService {
 
   User get(Long id);

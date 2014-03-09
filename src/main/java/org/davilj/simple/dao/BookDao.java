@@ -1,5 +1,9 @@
 package org.davilj.simple.dao;
 
+/**
+ * Data access Interface for managing books in
+ * data source
+ */
 import java.util.Collection;
 import java.util.List;
 

@@ -14,6 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Implementation of @Interface UserService
+ * 
+ * @author danie
+ * 
+ */
 @Service
 public class UserServiceImpl implements UserService {
   final static Logger log = LoggerFactory.getLogger(UserController.class);

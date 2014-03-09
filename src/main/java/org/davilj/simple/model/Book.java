@@ -9,6 +9,11 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * Just a book, with pages from paper
+ * 
+ * @author danie
+ */
 @Entity
 @Table(name = "Book")
 public class Book implements Serializable {
